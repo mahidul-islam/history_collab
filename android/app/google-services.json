@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "71915597486",
+    "project_id": "history-collab",
+    "storage_bucket": "history-collab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71915597486:android:f9e6e23ab8d48677f8073f",
+        "android_client_info": {
+          "package_name": "com.arrijal.history_collab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71915597486-25fntlu5hejpfq7sdi07j78tgvreeq6j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMPEf4eLivEY4fsERrVFaYhH1rjVgDTiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71915597486-25fntlu5hejpfq7sdi07j78tgvreeq6j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
