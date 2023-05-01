@@ -1,0 +1,628 @@
+[
+	{
+		"start": -2150,
+		"end": -1975,
+		"label": "ইব্রাহীম (আঃ) এর সময়কাল",
+		"article": "root.txt"
+	},
+	{
+		"start": -1400,
+		"end": -1301,
+		"label": "মূসা (আঃ) এর সময়কাল"
+	},
+	{
+		"start": -4,
+		"end": 33,
+		"label": "ঈসা (আঃ) এর সময়কাল"
+	},
+	{
+		"start": 530,
+		"end": 540,
+		"label": "যমযম কূপ খনন",
+		"article": "zamzam.txt"
+	},
+	{
+		"start": 570.5,
+		"asset": {
+			"source": "sirah.jpg",
+			"height": 800,
+			"width": 800
+		},
+		"end": 632.63,
+		"label": "মুহাম্মদ ﷺ এর জীবন",
+		"article": "rasul.txt"
+	},
+	{
+		"date": 570.9,
+		"label": "পিতা আব্দুল্লাহর মৃত্যু",
+		"article": "abdullah.txt"
+	},
+	{
+		"date": 571.1,
+		"label": "হস্তী বাহিনীর ঘটনা",
+		"article": "abraha.txt"
+	},
+	{
+		"date": 571.5,
+		"label": "মুহাম্মদ ﷺ এর জন্ম",
+		"article": "born.txt"
+	},
+	{
+		"start": 571.6,
+		"end": 576.9,
+		"label": "দুধমা হালীমার ঘরে",
+		"article": "halima.txt"
+	},
+	{
+		"start": 571.7,
+		"end": 573.7,
+		"label": "মা হালীমার দুধপান",
+		"article": "dudhpan.txt"
+	},
+	{
+		"start": 575,
+		"end": 576,
+		"label": "বক্ষ বিদারণ",
+		"article": "bokkho.txt"
+	},
+	{
+		"date": 577,
+		"label": "মা আমিনার মৃত্যু",
+		"article": "amina.txt"
+	},
+	{
+		"date": 579,
+		"label": "দাদা আব্দুল মুত্তালিবের মৃত্যু",
+		"article": "dada.txt"
+	},
+	{
+		"date": 583,
+		"label": "ধর্মযাজক বাহীরা",
+		"article": "bahira.txt"
+	},
+	{
+		"start": 586,
+		"end": 589,
+		"label": "ফিজার যুদ্ধ",
+		"article": "fizar.txt"
+	},
+	{
+		"date": 590,
+		"label": "হিলফুল ফুযূল",
+		"article": "fuzul.txt"
+	},
+	{
+		"date": 594,
+		"label": "ব্যবসার উদ্দেশ্যে সিরিয়া যাত্রা",
+		"article": "siria.txt"
+	},
+	{
+		"date": 596,
+		"label": "খাদীজাহ (রাঃ) এর সঙ্গে বিবাহ",
+		"article": "prothom.txt"
+	},
+	{
+		"date": 598,
+		"label": "নবিজির প্রথম সন্তান",
+		"article": "putro.txt"
+	},
+	{
+		"date": 605,
+		"label": "কাবা ঘরের পুন নির্মাণ",
+		"article": "kaba.txt"
+	},
+	{
+		"start": 610.1,
+		"end": 610.8,
+		"label": "হেরায় নির্জনবাস",
+		"article": "hera.txt"
+	},
+	{
+		"start": 611,
+		"end": 632.62,
+		"label": "নবুওয়্যাতের জীবন",
+		"article": "prophet.txt"
+	},
+	{
+		"start": 611.1,
+		"end": 622,
+		"label": "মাক্কি জীবন"
+	},
+	{
+		"start": 611.2,
+		"end": 613,
+		"label": "গোপন দাওয়াতী কর্মকান্ড",
+		"article": "dawat.txt"
+	},
+	{
+		"date": 611.3,
+		"label": "প্রথম মুসলিম ",
+		"article": "prothom_muslim.txt"
+	},
+	{
+		"start": 613.1,
+		"end": 622,
+		"label": "প্রকাশ্য দাওয়াতি কর্মকাণ্ড",
+		"article": "open.txt"
+	},
+	{
+		"start": 613.2,
+		"end": 613.8,
+		"label": "বনু হাসিম গোত্রকে দাওয়াত",
+		"article": "bonu_hashim.txt"
+	},
+	{
+		"date": 613.9,
+		"label": "সাফা পর্বতের উপর দাওয়াত",
+		"article": "safa.txt"
+	},
+	{
+		"date": 614,
+		"label": "রাসূলুল্লাহ ﷺ কে বুঝানো",
+		"article": "buj.txt"
+	},
+	{
+		"start": 614.1,
+		"end": 616.7,
+		"label": "প্রচণ্ড অত্যাচার",
+		"article": "most.txt"
+	},
+	{
+		"date": 614.2,
+		"label": "দারুল আরকাম",
+		"article": "arkam.txt"
+	},
+	{
+		"date": 614.25,
+		"label": "হজ্ব যাত্রীদের নিকট দাওয়াতে বাধা",
+		"article": "badha.txt"
+	},
+	{
+		"date": 614.3,
+		"label": "আবিসিনিয়াতে প্রথম হিজরত",
+		"article": "abisinia.txt"
+	},
+	{
+		"date": 614.5,
+		"label": "কাফিরদের সিজদাহ",
+		"article": "sijdah.txt"
+	},
+	{
+		"date": 615,
+		"label": "আবিসিনিয়াতে দ্বিতীয় হিজরত",
+		"article": "abisinia2.txt"
+	},
+	{
+		"date": 615.2,
+		"label": "আবিসিনিয়ায় ষড়যন্ত্র",
+		"article": "dorbar.txt"
+	},
+	{
+		"date": 616.5,
+		"label": "হামযা (রাঃ) এর ইসলাম গ্রহণ",
+		"article": "hamja.txt"
+	},
+	{
+		"date": 616.6,
+		"label": "উমর (রাঃ) এর ইসলাম গ্রহণ",
+		"article": "omar.txt"
+	},
+	{
+		"date": 616.8,
+		"label": "রাসূলুল্লাহ ﷺ কে প্ৰরোচিত করা",
+		"article": "lov.txt"
+	},
+	{
+		"date": 616.9,
+		"label": "ইহুদী পণ্ডিতদের প্রশ্ন",
+		"article": "ques.txt"
+	},
+	{
+		"start": 617,
+		"end": 618.95,
+		"label": "বনু হাসিম এর বয়কট",
+		"article": "boycott.txt"
+	},
+	{
+		"date": 618.8,
+		"label": "বয়কট এর অবসান",
+		"article": "done.txt"
+	},
+	{
+		"start": 619,
+		"end": 620,
+		"label": "দুঃখের বছর"
+	},
+	{
+		"date": 619.1,
+		"label": "আবু তালিবের মৃত্যু",
+		"article": "talib.txt"
+	},
+	{
+		"date": 619.7,
+		"label": "খাদিজা (রাঃ) এর মৃত্যু",
+		"article": "khadija_ra.txt"
+	},
+	{
+		"date": 619.9,
+		"label": "তায়েফে হিজরত",
+		"article": "tayef.txt"
+	},
+	{
+		"date": 620.3,
+		"label": "মিরাজে গমন",
+		"article": "miraj.txt"
+	},
+	{
+		"date": 621.4,
+		"label": "আক্বাবার প্রথম বায়আত",
+		"article": "aqaba1.txt"
+	},
+	{
+		"start": 621.7,
+		"end": 622.4,
+		"label": "মদিনায় দাওয়াতি কাজ",
+		"article": "musab.txt"
+	},
+	{
+		"date": 622.5,
+		"label": "আক্বাবার দ্বিতীয় বায়আত",
+		"article": "aqaba2.txt"
+	},
+	{
+		"start": 622.55,
+		"end": 632.61,
+		"label": "মাদানি জীবন"
+	},
+	{
+		"date": 622.6,
+		"label": "মদিনায় হিজরত",
+		"article": "hijrat.txt"
+	},
+	{
+		"date": 622.7,
+		"label": "মসজিদে নববি প্রতিষ্ঠা",
+		"article": "nababi_mosq.txt"
+	},
+	{
+		"date": 622.8,
+		"label": "মদিনা সনদ",
+		"article": "sanad.txt"
+	},
+	{
+		"start": 623,
+		"end": 624.2,
+		"label": "ছোট আকারে যুদ্ধসমূহ",
+		"article": "choto.txt"
+	},
+	{
+		"date": 623.2,
+		"label": "সারিয়্যাতু সীফিল বাহর",
+		"article": "choto1.txt"
+	},
+	{
+		"date": 623.3,
+		"label": " সারিয়্যাতু রাবিগ",
+		"article": "choto2.txt"
+	},
+	{
+		"date": 623.4,
+		"label": "সারীয়্যায়ে খার্রার",
+		"article": "choto3.txt"
+	},
+	{
+		"date": 623.7,
+		"label": "গাযওয়ায়ে আবওয়া",
+		"article": "choto4.txt"
+	},
+	{
+		"date": 623.8,
+		"label": "গাযওয়ায়ে বুওয়াত",
+		"article": "choto5.txt"
+	},
+	{
+		"date": 623.9,
+		"label": "গাযওয়ায়ে সাফওয়ান",
+		"article": "choto6.txt"
+	},
+	{
+		"date": 624,
+		"label": "গাযওয়ায়ে যিল উশাইরাহ",
+		"article": "choto7.txt"
+	},
+	{
+		"date": 624.1,
+		"label": "নাখলাহ অভিযান",
+		"article": "choto8.txt"
+	},
+	{
+		"date": 624.3,
+		"label": "বদরের যুদ্ধ",
+		"article": "bodor.txt"
+	},
+	{
+		"start": 624.5,
+		"end": 625.2,
+		"label": "বদর ও উহুদের মাঝে যুদ্ধসমূহ",
+		"article": "majher.txt"
+	},
+	{
+		"date": 624.55,
+		"label": "গাযওয়ায়ে বনী সুলাইমে",
+		"article": "sulaim.txt"
+	},
+	{
+		"date": 624.6,
+		"label": "উমায়ের (রাঃ) এর ঘটনা",
+		"article": "umayer.txt"
+	},
+	{
+		"date": 624.7,
+		"label": "গাযওয়ায়ে বনী ক্বাইনুক্কা",
+		"article": "qainuka.txt"
+	},
+	{
+		"date": 624.8,
+		"label": "গাযওয়ায়ে সাভীক",
+		"article": "savik.txt"
+	},
+	{
+		"date": 624.9,
+		"label": "গাযওয়ায়ে যূ ‘আমর",
+		"article": "zuamar.txt"
+	},
+	{
+		"date": 625,
+		"label": "গোস্তাখে রাসুল (কা‘ব ইবনু আশরাফ)",
+		"article": "kab.txt"
+	},
+	{
+		"date": 625.1,
+		"label": "গাযওয়ায়ে বাহরান",
+		"article": "bahran.txt"
+	},
+	{
+		"date": 625.15,
+		"label": "সারিয়্যাতু যায়দ ইবনু হারিসা",
+		"article": "harisa.txt"
+	},
+	{
+		"date": 625.4,
+		"label": "উহুদের যুদ্ধ ",
+		"article": "uhud.txt"
+	},
+	{
+		"date": 625.6,
+		"label": "আবু সালামা (রাঃ) এর অভিযান",
+		"article": "salama.txt"
+	},
+	{
+		"date": 625.65,
+		"label": "আব্দুল্লাহ বিন উনাইস (রাঃ) এর অভিযান",
+		"article": "unais.txt"
+	},
+	{
+		"date": 625.7,
+		"label": "রাযীর ঘটনা ",
+		"article": "raji.txt"
+	},
+	{
+		"date": 625.75,
+		"label": "বীরে মাউনার ঘটনা",
+		"article": "mauna.txt"
+	},
+	{
+		"date": 625.8,
+		"label": "বনু নযীর এর ঘটনা ",
+		"article": "nojir.txt"
+	},
+	{
+		"date": 625.85,
+		"label": "নাজদ যুদ্ধ",
+		"article": "najd.txt"
+	},
+	{
+		"date": 626,
+		"label": "২য় বদর যুদ্ধ",
+		"article": "bodor2.txt"
+	},
+	{
+		"date": 626.5,
+		"label": "গাযওয়ায়ে দুমাতুল জানদাল",
+		"article": "jandal.txt"
+	},
+	{
+		"date": 627,
+		"label": "খন্দকের যুদ্ধ ",
+		"article": "khandak.txt"
+	},
+	{
+		"date": 627.1,
+		"label": "বনু কুরাইযাহর যুদ্ধ",
+		"article": "sltr.txt"
+	},
+	{
+		"date": 627.4,
+		"label": "গোস্তাখে রাসুল (সালাম বিন আবিল হুক্বাইক্ব)",
+		"article": "huqaik.txt"
+	},
+	{
+		"date": 627.6,
+		"label": "মুহাম্মাদ বিন মাসলামাহ’র অভিযান",
+		"article": "mslmh.txt"
+	},
+	{
+		"date": 627.7,
+		"label": "বনু লাহইয়ান যুদ্ধ",
+		"article": "lahyan.txt"
+	},
+	{
+		"start": 627.8,
+		"end": 628.15,
+		"label": "বিভিন্ন ছোট যুদ্ধ (১৩টি)",
+		"article": "sm13.txt"
+	},
+	{
+		"date": 628.25,
+		"label": "কিছু বিশেষ ঘটনা",
+		"article": "ghotona.txt"
+	},
+	{
+		"date": 628.3,
+		"label": "হজ্ব যাত্রা ",
+		"article": "hajj.txt"
+	},
+	{
+		"date": 628.35,
+		"label": "উসমান (রাঃ) এর ঘটনা",
+		"article": "usmn.txt"
+	},
+	{
+		"date": 628.4,
+		"label": "হুদাইবিয়ার সন্ধি",
+		"article": "hudaibiya.txt"
+	},
+	{
+		"date": 628.5,
+		"label": "রাজা বাদশাদের পত্র প্রেরণ (৮টি)",
+		"article": "potro.txt"
+	},
+	{
+		"date": 628.6,
+		"label": "যী কারাদ যুদ্ধ (গাবা যুদ্ধ)",
+		"article": "gaba.txt"
+	},
+	{
+		"date": 628.7,
+		"label": "খায়বারের যুদ্ধ",
+		"article": "khaybar.txt"
+	},
+	{
+		"start": 628.8,
+		"end": 629,
+		"label": "বিভিন্ন ছোট যুদ্ধ (৯টি)",
+		"article": "sm9.txt"
+	},
+	{
+		"date": 629.3,
+		"label": "কাযা উমরা আদায়",
+		"article": "kaza.txt"
+	},
+	{
+		"start": 629.5,
+		"end": 629.7,
+		"label": "বিভিন্ন ছোট যুদ্ধ (৪টি)",
+		"article": "sm4.txt"
+	},
+	{
+		"date": 629.8,
+		"label": "মুতার যুদ্ধ ",
+		"article": "muta.txt"
+	},
+	{
+		"date": 630,
+		"label": "মক্কা বিজয় ",
+		"article": "fateh.txt"
+	},
+	{
+		"date": 630.1,
+		"label": "হুনাইন যুদ্ধ",
+		"article": "hunain.txt"
+	},
+	{
+		"date": 630.2,
+		"label": "ত্বায়িফ যুদ্ধ",
+		"article": "tawif.txt"
+	},
+	{
+		"date": 630.3,
+		"label": "বিভিন্ন গোত্রে যাকাতের কর্মী প্রেরণ",
+		"article": "zakat.txt"
+	},
+	{
+		"start": 630.4,
+		"end": 630.7,
+		"label": "বিভিন্ন ছোট যুদ্ধ (৫টি)",
+		"article": "sm5.txt"
+	},
+	{
+		"date": 630.8,
+		"label": "স্ত্রীদের সাথে ঝগড়া",
+		"article": "jhogra.txt"
+	},
+	{
+		"date": 630.9,
+		"label": "তাবুক যুদ্ধ",
+		"article": "tabuk.txt"
+	},
+	{
+		"date": 631.2,
+		"label": "মুশরিকদের হজ্জ বন্ধ",
+		"article": "bondho.txt"
+	},
+	{
+		"date": 631.6,
+		"label": "ইসলামের ব্যপক প্রসার",
+		"article": "prosar.txt"
+	},
+	{
+		"date": 632.2,
+		"label": "বিদায় হজ্জ",
+		"article": "last.txt"
+	},
+	{
+		"date": 632.4,
+		"label": "শেষ যুদ্ধ কাফেলা প্রস্তুত",
+		"article": "war.txt"
+	},
+	{
+		"date": 632.6,
+		"label": "রাসুলুল্লাহ ﷺ এর অন্তিম মুহূর্ত",
+		"article": "sad.txt"
+	},
+	{
+		"start": 632.64,
+		"end": 661.75,
+		"label": "খেলাফত আমল"
+	},
+	{
+		"start": 632.7,
+		"end": 634.6,
+		"label": "আবু বকর (রাঃ) এর খেলাফত"
+	},
+	{
+		"start": 634.7,
+		"end": 644,
+		"label": "উমর (রাঃ) এর খেলাফত"
+	},
+	{
+		"start": 644,
+		"end": 656,
+		"label": "উসমান (রাঃ) এর খেলাফত"
+	},
+	{
+		"start": 656,
+		"end": 661,
+		"label": "আলী (রাঃ) এর খেলাফত"
+	},
+	{
+		"start": 661.1,
+		"end": 661.7,
+		"label": "হাসান (রাঃ) এর খেলাফত"
+	},
+	{
+		"start": 661.8,
+		"end": 750,
+		"label": "উমাইয়া খেলাফত "
+	},
+	{
+		"start": 750.1,
+		"end": 1258,
+		"label": "আব্বাসি খেলাফত "
+	},
+	{
+		"start": 1517,
+		"end": 1924,
+		"label": "উসমানী খেলাফত"
+	}
+]

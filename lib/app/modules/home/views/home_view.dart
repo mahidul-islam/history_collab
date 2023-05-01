@@ -10,8 +10,11 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Obx(() {
       return Scaffold(
+        // floatingActionButton: FloatingActionButton(onPressed: () {
+//
+        // }),
         appBar: AppBar(
-          title: const Text('HomeView'),
+          title: const Text('History Collaboration Portal'),
           centerTitle: true,
         ),
         body: Center(
