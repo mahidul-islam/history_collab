@@ -1,9 +1,10 @@
 import 'dart:convert';
 
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:history_collab/app/modules/home/model/entry.dart';
 
 class HomeController extends GetxController {
   DatabaseReference? _database;
@@ -11,6 +12,18 @@ class HomeController extends GetxController {
   DatabaseReference? _details;
 
   RxMap<String, dynamic> map = {'Zihan': 'vai'}.obs;
+
+  ScrollController scrollController = ScrollController();
+
+  List<String> tableHeads = <String>[
+    'Label',
+    'Date',
+    'Start',
+    'End',
+    'Article'
+  ];
+
+  RxList<Entry> entries = RxList.empty();
 
   @override
   void onInit() {
@@ -26,11 +39,17 @@ class HomeController extends GetxController {
   }
 
   void checkAndUpdate(DatabaseEvent event) {
-    final Map<String, dynamic>? cacheMap =
+    final List<dynamic> cacheMap =
         json.decode(json.encode(event.snapshot.value));
-    map.value = cacheMap ?? {'New': 'default'};
-    if (kDebugMode) {
-      print(cacheMap);
+
+    for (int i = 0; i < cacheMap.length; i++) {
+      entries.add(Entry(
+        label: cacheMap[i]['label'],
+        article: cacheMap[i]['article'],
+        date: cacheMap[i]['date'],
+        start: cacheMap[i]['start'],
+        end: cacheMap[i]['end'],
+      ));
     }
   }
 
