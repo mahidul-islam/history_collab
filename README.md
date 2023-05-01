@@ -1,16 +1,10 @@
 # history_collab
 
-A new Flutter project.
+A protal for collaborating between contributors who will work for Sirah App Database
 
-## Getting Started
+## Deployment url
 
-This project is a starting point for a Flutter application.
+Project Console: https://console.firebase.google.com/project/history-collab/overview
 
-A few resources to get you started if this is your first Flutter project:
+Hosting URL: https://history-collab.web.app
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
