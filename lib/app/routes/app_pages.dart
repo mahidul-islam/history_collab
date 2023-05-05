@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/article/bindings/article_binding.dart';
 import '../modules/article/views/article_view.dart';
+import '../modules/entry/bindings/entry_binding.dart';
+import '../modules/entry/views/entry_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 
@@ -22,6 +24,11 @@ class AppPages {
       name: _Paths.ARTICLE,
       page: () => const ArticleView(),
       binding: ArticleBinding(),
+    ),
+    GetPage(
+      name: _Paths.ENTRY,
+      page: () => const EntryView(),
+      binding: EntryBinding(),
     ),
   ];
 }
