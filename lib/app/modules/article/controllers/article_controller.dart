@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:code_text_field/code_text_field.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:highlight/languages/all.dart';
@@ -11,6 +13,10 @@ import 'package:history_collab/app/shared/modal/modal_util.dart';
 class ArticleController extends GetxController {
   DatabaseReference? _database;
   DatabaseReference? _details;
+  StreamSubscription? subscription;
+  // RemoteConfigUpdate? remoteConfig;
+  FirebaseRemoteConfig? remoteConfig;
+
   RxnString link = RxnString();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -21,6 +27,7 @@ class ArticleController extends GetxController {
   );
 
   final Map<String, TextStyle> styles = vsTheme;
+  final Map<String, String> users = {};
 
   @override
   void onInit() {
@@ -36,12 +43,27 @@ class ArticleController extends GetxController {
         (DatabaseEvent event) => checkAndUpdate(event),
       );
     }
+    remoteConfig = FirebaseRemoteConfig.instance;
+    remoteConfig?.fetchAndActivate();
     super.onInit();
   }
+
+  // void test() {
+  //   try {
+  //     Map val = jsonDecode(remoteConfig?.getString('users') ?? '');
+  //     print(val);
+  //   } catch (_) {
+  //     print('error');
+  //   }
+  // }
 
   void checkAndUpdate(DatabaseEvent event) {
     final String? cacheMap = json.decode(json.encode(event.snapshot.value));
     articleController.text = cacheMap ?? '--';
+  }
+
+  void getUpdatedUsers(RemoteConfigUpdate event) {
+    print(event.updatedKeys);
   }
 
   Future<void> save() async {
@@ -64,7 +86,13 @@ class ArticleController extends GetxController {
           MaterialButton(
             color: Colors.greenAccent,
             onPressed: () {
-              if (_passwordController.text == 'sirah_team') {
+              final Map<String, String> val = Map<String, String>.from(
+                  jsonDecode(remoteConfig?.getString('users') ?? ''));
+              if (val.values.contains(_passwordController.text)) {
+                // final String name = val.keys.firstWhere(
+                //     (element) => val[element] == _passwordController.text);
+                // Add name in Database
+                // print(name);
                 _details?.set(articleController.text);
                 Get.back();
               }
