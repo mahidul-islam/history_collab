@@ -8,3 +8,10 @@ Project Console: https://console.firebase.google.com/project/history-collab/over
 
 Hosting URL: https://history-collab.web.app
 
+
+## To deploy:
+
+```
+flutter build web    
+firebase deploy --only hosting
+```
