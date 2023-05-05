@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:highlight/languages/all.dart';
 import 'package:flutter_highlight/themes/vs.dart';
+import 'package:history_collab/app/shared/modal/modal_util.dart';
 
 class ArticleController extends GetxController {
   DatabaseReference? _database;
   DatabaseReference? _details;
   RxnString link = RxnString();
+  final TextEditingController _passwordController = TextEditingController();
 
   final CodeController articleController = CodeController(
     text: '',
@@ -43,6 +45,34 @@ class ArticleController extends GetxController {
   }
 
   Future<void> save() async {
-    //
+    ModalUtil().showbasicModal(contents: [
+      TextField(
+        controller: _passwordController,
+        obscureText: true,
+      ),
+      const SizedBox(height: 40),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          MaterialButton(
+            color: Colors.amberAccent,
+            onPressed: () {
+              Get.back();
+            },
+            child: const Text('Cancel'),
+          ),
+          MaterialButton(
+            color: Colors.greenAccent,
+            onPressed: () {
+              if (_passwordController.text == 'sirah_team') {
+                _details?.set(articleController.text);
+                Get.back();
+              }
+            },
+            child: const Text('Save'),
+          ),
+        ],
+      ),
+    ]);
   }
 }
