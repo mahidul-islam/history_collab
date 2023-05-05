@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:history_collab/app/modules/home/model/entry.dart';
 import 'package:history_collab/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
@@ -14,8 +13,7 @@ class HomeView extends GetView<HomeController> {
       return Scaffold(
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Get.toNamed(Routes.ENTRY);
-              // controller.getData();
+              Get.toNamed(Routes.ENTRY, arguments: [null, null]);
             },
             child: const Icon(Icons.add),
           ),
@@ -64,7 +62,9 @@ class HomeView extends GetView<HomeController> {
                                 ),
                             ],
                             rows: [
-                              for (Entry entry in controller.entries)
+                              for (int i = 0;
+                                  i < controller.entries.length;
+                                  i++)
                                 DataRow(
                                   color:
                                       MaterialStateProperty.resolveWith<Color?>(
@@ -78,7 +78,8 @@ class HomeView extends GetView<HomeController> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Text(entry.label ?? '--'),
+                                          Text(controller.entries[i].label ??
+                                              '--'),
                                         ],
                                       ),
                                     ),
@@ -87,7 +88,9 @@ class HomeView extends GetView<HomeController> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text(entry.date?.toString() ?? '--'),
+                                          Text(controller.entries[i].date
+                                                  ?.toString() ??
+                                              '--'),
                                         ],
                                       ),
                                     ),
@@ -96,7 +99,9 @@ class HomeView extends GetView<HomeController> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text(entry.start?.toString() ?? '--'),
+                                          Text(controller.entries[i].start
+                                                  ?.toString() ??
+                                              '--'),
                                         ],
                                       ),
                                     ),
@@ -105,7 +110,9 @@ class HomeView extends GetView<HomeController> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text(entry.end?.toString() ?? '--'),
+                                          Text(controller.entries[i].end
+                                                  ?.toString() ??
+                                              '--'),
                                         ],
                                       ),
                                     ),
@@ -114,12 +121,27 @@ class HomeView extends GetView<HomeController> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text(entry.article ?? '--'),
+                                          Text(controller.entries[i].article ??
+                                              '--'),
                                         ],
                                       ),
                                       onTap: () {
                                         Get.toNamed(Routes.ARTICLE,
-                                            arguments: entry.article);
+                                            arguments:
+                                                controller.entries[i].article);
+                                      },
+                                    ),
+                                    DataCell(
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: const [Icon(Icons.edit)],
+                                      ),
+                                      onTap: () {
+                                        Get.toNamed(
+                                          Routes.ENTRY,
+                                          arguments: [controller.entries[i], i],
+                                        );
                                       },
                                     ),
                                   ],

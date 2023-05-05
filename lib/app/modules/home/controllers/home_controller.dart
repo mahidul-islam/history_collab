@@ -20,7 +20,8 @@ class HomeController extends GetxController {
     'Date',
     'Start',
     'End',
-    'Article'
+    'Article',
+    'Edit',
   ];
 
   RxList<Entry> entries = RxList.empty();
