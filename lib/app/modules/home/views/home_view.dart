@@ -13,7 +13,10 @@ class HomeView extends GetView<HomeController> {
       return Scaffold(
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Get.toNamed(Routes.ENTRY, arguments: [null, null]);
+              Get.toNamed(Routes.ENTRY, arguments: [
+                null,
+                controller.entries.isEmpty ? null : controller.entries.length
+              ]);
             },
             child: const Icon(Icons.add),
           ),
@@ -126,9 +129,10 @@ class HomeView extends GetView<HomeController> {
                                         ],
                                       ),
                                       onTap: () {
-                                        Get.toNamed(Routes.ARTICLE,
-                                            arguments:
-                                                controller.entries[i].article);
+                                        Get.toNamed(Routes.ARTICLE, arguments: [
+                                          controller.entries[i],
+                                          i
+                                        ]);
                                       },
                                     ),
                                     DataCell(

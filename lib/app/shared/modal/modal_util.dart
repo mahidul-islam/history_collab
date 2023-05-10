@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ModalUtil {
+  static ModalUtil get to => Get.find();
   Future<void> showTwoButtonModal({
     required final String title,
-    required final String cancelButtonTitle,
-    required final String submitButtonTitle,
+    final String? cancelButtonTitle,
+    final String? submitButtonTitle,
     required final List<Widget> contents,
     final Function? cancelOnPressed,
     final Function? submitOnPressed,
@@ -35,34 +36,27 @@ class ModalUtil {
                     style: const TextStyle(fontSize: 20),
                   ),
                   const SizedBox(height: 32),
-
                   ...contents,
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.end,
-                  //   children: <Widget>[
-                  //     SizedBox(
-                  //       width: 164,
-                  //       height: 48,
-                  //       child: BarButton.secondary(
-                  //         onPressed: () {
-                  //           cancelOnPressed?.call() ?? Get.back();
-                  //         },
-                  //         title: cancelButtonTitle,
-                  //       ),
-                  //     ),
-                  //     const SizedBox(width: 16),
-                  //     SizedBox(
-                  //       width: 164,
-                  //       height: 48,
-                  //       child: BarButton.primary(
-                  //         onPressed: () {
-                  //           submitOnPressed?.call() ?? Get.back();
-                  //         },
-                  //         title: submitButtonTitle,
-                  //       ),
-                  //     ),
-                  //   ],
-                  // )
+                  const SizedBox(height: 40),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      MaterialButton(
+                        color: Colors.amberAccent,
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: const Text('Cancel'),
+                      ),
+                      MaterialButton(
+                        color: Colors.greenAccent,
+                        onPressed: () {
+                          submitOnPressed?.call();
+                        },
+                        child: const Text('Save'),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

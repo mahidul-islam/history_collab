@@ -27,6 +27,15 @@ class Entry {
         end: json['end'],
         asset: json['asset'] == null ? null : Asset.fromJson(json['asset']),
       );
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'article': article,
+        'label': label,
+        'date': date,
+        'start': start,
+        'end': end,
+        'asset': asset?.toJson(),
+      };
 }
 
 class Asset {
@@ -47,4 +56,10 @@ class Asset {
         height: json['height'],
         width: json['width'],
       );
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'source': source,
+        'height': height,
+        'width': width,
+      };
 }

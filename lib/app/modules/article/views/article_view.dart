@@ -21,11 +21,29 @@ class ArticleView extends GetView<ArticleController> {
             centerTitle: true,
           ),
           body: SingleChildScrollView(
-            child: SizedBox(
-              child: InnerField(
-                codeController: controller.articleController,
-                styles: controller.styles,
-              ),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text('Article Name'),
+                    const SizedBox(width: 40),
+                    SizedBox(
+                      width: 400,
+                      child: TextField(
+                        controller: controller.titleController,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 40),
+                SizedBox(
+                  child: InnerField(
+                    codeController: controller.articleController,
+                    styles: controller.styles,
+                  ),
+                ),
+              ],
             ),
           ),
         );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
-import 'package:history_collab/app/modules/article/widget/code_box.dart';
 
 import '../controllers/entry_controller.dart';
 
@@ -11,7 +11,7 @@ class EntryView extends GetView<EntryController> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: controller.save,
         child: const Icon(Icons.save),
       ),
       appBar: AppBar(
@@ -44,6 +44,10 @@ class EntryView extends GetView<EntryController> {
                   width: 400,
                   child: TextField(
                     controller: controller.dateController,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(
+                          RegExp(r'(^-?\d*\.?\d*)'))
+                    ],
                   ),
                 ),
               ],
@@ -58,6 +62,10 @@ class EntryView extends GetView<EntryController> {
                   width: 400,
                   child: TextField(
                     controller: controller.startController,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(
+                          RegExp(r'(^-?\d*\.?\d*)'))
+                    ],
                   ),
                 ),
               ],
@@ -72,30 +80,13 @@ class EntryView extends GetView<EntryController> {
                   width: 400,
                   child: TextField(
                     controller: controller.endController,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(
+                          RegExp(r'(^-?\d*\.?\d*)'))
+                    ],
                   ),
                 ),
               ],
-            ),
-            const SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text('Article Name'),
-                const SizedBox(width: 40),
-                SizedBox(
-                  width: 400,
-                  child: TextField(
-                    controller: controller.articleNameController,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 40),
-            SizedBox(
-              child: InnerField(
-                codeController: controller.articleController,
-                styles: controller.styles,
-              ),
             ),
           ],
         ),
