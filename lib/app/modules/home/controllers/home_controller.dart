@@ -10,6 +10,7 @@ class HomeController extends GetxController {
   DatabaseReference? _database;
   DatabaseReference? _index;
   DatabaseReference? _details;
+  String? database;
 
   RxMap<String, dynamic> map = {'Zihan': 'vai'}.obs;
 
@@ -28,11 +29,13 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
+    database = Get.arguments as String?;
+    database ??= 'sirah';
     FirebaseDatabase.instance.databaseURL =
         'https://history-collab-default-rtdb.asia-southeast1.firebasedatabase.app/';
     _database = FirebaseDatabase.instance.ref();
-    _index = _database?.child('sirah/index/');
-    _details = _database?.child('sirah/details/');
+    _index = _database?.child('$database/index/');
+    _details = _database?.child('$database/details/');
     _index?.onValue.listen(
       (DatabaseEvent event) => checkAndUpdate(event),
     );
@@ -40,17 +43,19 @@ class HomeController extends GetxController {
   }
 
   void checkAndUpdate(DatabaseEvent event) {
-    final List<dynamic> cacheMap =
-        json.decode(json.encode(event.snapshot.value));
-
-    for (int i = 0; i < cacheMap.length; i++) {
-      entries.add(Entry(
-        label: cacheMap[i]['label'],
-        article: cacheMap[i]['article'],
-        date: cacheMap[i]['date'],
-        start: cacheMap[i]['start'],
-        end: cacheMap[i]['end'],
-      ));
+    if (event.snapshot.value != null) {
+      entries.clear();
+      final List<dynamic> cacheMap =
+          json.decode(json.encode(event.snapshot.value));
+      for (int i = 0; i < cacheMap.length; i++) {
+        entries.add(Entry(
+          label: cacheMap[i]['label'],
+          article: cacheMap[i]['article'],
+          date: cacheMap[i]['date'],
+          start: cacheMap[i]['start'],
+          end: cacheMap[i]['end'],
+        ));
+      }
     }
   }
 

@@ -16,8 +16,9 @@ class ArticleController extends GetxController {
   DatabaseReference? _details;
   DatabaseReference? _index;
   DatabaseReference? _newDetails;
-  StreamSubscription? subscription;
+  // StreamSubscription? subscription;
   FirebaseRemoteConfig? remoteConfig;
+  String? database;
 
   RxnString link = RxnString();
   final TextEditingController titleController = TextEditingController();
@@ -42,11 +43,13 @@ class ArticleController extends GetxController {
     _database = FirebaseDatabase.instance.ref();
     entry = Get.arguments[0] as Entry?;
     index = Get.arguments[1] as int?;
+    database = Get.arguments[2] as String?;
+    database ??= 'sirah';
     link.value = entry?.article?.split('.').first;
 
     if (link.value != null) {
       titleController.text = link.value ?? '';
-      _details = _database?.child('sirah/details/${link.value}');
+      _details = _database?.child('$database/details/${link.value}');
       _details?.onValue.listen(
         (DatabaseEvent event) => checkAndUpdate(event),
       );
@@ -63,7 +66,7 @@ class ArticleController extends GetxController {
 
   Future<void> save() async {
     if (link.value == null) {
-      ModalUtil.to.showTwoButtonModal(
+      ModalUtil().showTwoButtonModal(
         title: 'Save New Data',
         contents: [
           TextField(
@@ -74,20 +77,20 @@ class ArticleController extends GetxController {
         ],
         submitOnPressed: () async {
           _newDetails =
-              _database?.child('sirah/details/${titleController.text}');
-          _index = _database?.child('sirah/index/$index');
+              _database?.child('$database/details/${titleController.text}');
+          _index = _database?.child('$database/index/$index');
           await _newDetails?.get().then((value) {
             if (value.value == null) {
               final Map<String, String> val = Map<String, String>.from(
                   jsonDecode(remoteConfig?.getString('users') ?? ''));
               if (val.values.contains(_passwordController.text)) {
                 _newDetails?.set(articleController.text);
-                entry?.article = articleController.text;
+                entry?.article = titleController.text;
                 _index?.set(entry?.toJson());
                 Get.back();
               }
             } else {
-              ModalUtil.to.showbasicModal(
+              ModalUtil().showbasicModal(
                   contents: [const Text('title already exists')]);
             }
           });
@@ -104,7 +107,7 @@ class ArticleController extends GetxController {
         },
       );
     } else if (link.value == titleController.text) {
-      ModalUtil.to.showTwoButtonModal(
+      ModalUtil().showTwoButtonModal(
         title: 'Edit Data',
         contents: [
           TextField(

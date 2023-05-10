@@ -15,7 +15,8 @@ class HomeView extends GetView<HomeController> {
             onPressed: () {
               Get.toNamed(Routes.ENTRY, arguments: [
                 null,
-                controller.entries.isEmpty ? null : controller.entries.length
+                controller.entries.length,
+                controller.database,
               ]);
             },
             child: const Icon(Icons.add),
@@ -27,7 +28,19 @@ class HomeView extends GetView<HomeController> {
           body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                const SizedBox(height: 24),
+                const SizedBox(height: 12),
+                Container(
+                  // color: Colors.amberAccent,
+                  alignment: Alignment.center,
+                  // padding: const EdgeInsets.all(40),
+                  width: Get.width,
+                  height: 50,
+                  child: Text(
+                    (controller.database ?? 'Hello').toUpperCase(),
+                    style: const TextStyle(fontSize: 30, color: Colors.black),
+                  ),
+                ),
+                const SizedBox(height: 12),
                 Stack(
                   children: <Widget>[
                     Scrollbar(
@@ -131,7 +144,8 @@ class HomeView extends GetView<HomeController> {
                                       onTap: () {
                                         Get.toNamed(Routes.ARTICLE, arguments: [
                                           controller.entries[i],
-                                          i
+                                          i,
+                                          controller.database,
                                         ]);
                                       },
                                     ),
@@ -144,7 +158,11 @@ class HomeView extends GetView<HomeController> {
                                       onTap: () {
                                         Get.toNamed(
                                           Routes.ENTRY,
-                                          arguments: [controller.entries[i], i],
+                                          arguments: [
+                                            controller.entries[i],
+                                            i,
+                                            controller.database,
+                                          ],
                                         );
                                       },
                                     ),
