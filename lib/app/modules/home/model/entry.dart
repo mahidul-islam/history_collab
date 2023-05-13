@@ -20,22 +20,26 @@ class Entry {
   factory Entry.fromRawJson(String str) => Entry.fromJson(json.decode(str));
 
   factory Entry.fromJson(Map<String, dynamic> json) => Entry(
+        start: json['start'],
         article: json['article'],
         label: json['label'],
         date: json['date'],
-        start: json['start'],
         end: json['end'],
         asset: json['asset'] == null ? null : Asset.fromJson(json['asset']),
       );
 
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'article': article,
-        'label': label,
-        'date': date,
-        'start': start,
-        'end': end,
-        'asset': asset?.toJson(),
-      };
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> map = <String, dynamic>{
+      'start': start,
+      'asset': asset?.toJson(),
+      'end': end,
+      'date': date,
+      'label': label,
+      'article': article,
+    };
+    map.removeWhere((key, value) => value == null);
+    return map;
+  }
 }
 
 class Asset {
@@ -57,9 +61,13 @@ class Asset {
         width: json['width'],
       );
 
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        'source': source,
-        'height': height,
-        'width': width,
-      };
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> map = <String, dynamic>{
+      'source': source,
+      'height': height,
+      'width': width,
+    };
+    map.removeWhere((key, value) => value == null);
+    return map;
+  }
 }

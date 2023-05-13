@@ -5,12 +5,14 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:github/github.dart';
+import 'package:history_collab/app/modules/home/model/entry.dart';
 import 'package:history_collab/app/shared/services/remote_config_service.dart';
 
 class DeployController extends GetxController {
   GitHub? github;
   DatabaseReference? _database;
   DatabaseReference? _details;
+  DatabaseReference? _index;
 
   final mail = 'mizihan84@gmail.com';
   final slug = RepositorySlug('mahidul-islam', 'mock_server');
@@ -19,9 +21,10 @@ class DeployController extends GetxController {
   RxList<String> databases = RxList.empty();
   RxnString selectedDatabase = RxnString('sirah');
   TextEditingController articleNameController = TextEditingController();
+  RxList<Entry> entries = RxList.empty();
 
-  RxnString articleFoundInFirebase = RxnString();
-  RxnString articleFoundInGithub = RxnString();
+  RxnString textFoundInFirebase = RxnString();
+  RxnString textFoundInGithub = RxnString();
 
   @override
   void onInit() async {
@@ -40,9 +43,14 @@ class DeployController extends GetxController {
     super.onInit();
   }
 
-  Future<void> onCompare() async {
+  Future<void> onCompareArticle() async {
     unawaited(getSingleDetailsGithubPage());
     unawaited(getFirebaseArticle());
+  }
+
+  Future<void> onCompareEventIndex() async {
+    unawaited(getTopicListGithubPage());
+    unawaited(getFirebaseTopicList());
   }
 
   Future<void> getFirebaseArticle() async {
@@ -51,9 +59,36 @@ class DeployController extends GetxController {
     _details?.onValue.listen(
       (DatabaseEvent event) {
         final String? cacheMap = json.decode(json.encode(event.snapshot.value));
-        articleFoundInFirebase.value = cacheMap ?? '--';
+        textFoundInFirebase.value = cacheMap ?? '--';
       },
     );
+  }
+
+  Future<void> getFirebaseTopicList() async {
+    _index = _database?.child('$selectedDatabase/index/');
+    _index?.onValue.listen((DatabaseEvent event)
+        // => checkAndUpdate
+        {
+      if (event.snapshot.value != null) {
+        entries.clear();
+        final List<dynamic> cacheMap =
+            json.decode(json.encode(event.snapshot.value));
+        for (int i = 0; i < cacheMap.length; i++) {
+          entries.add(Entry(
+            label: cacheMap[i]['label'],
+            article: cacheMap[i]['article'],
+            date: cacheMap[i]['date'],
+            start: cacheMap[i]['start'],
+            end: cacheMap[i]['end'],
+          ));
+        }
+      }
+      final jsonData =
+          List<dynamic>.from(entries.map((dynamic x) => x.toJson()));
+
+      const encoder = JsonEncoder.withIndent("");
+      textFoundInFirebase.value = encoder.convert(jsonData);
+    });
   }
 
   Future<RepositoryCommit?> fetchLatestCommit() async {
@@ -115,7 +150,21 @@ class DeployController extends GetxController {
 
     // Print the names of the files in the folder
     if (contents != null && contents.isFile) {
-      articleFoundInGithub.value = utf8.decode(base64.decode(
+      textFoundInGithub.value = utf8.decode(base64.decode(
+          (contents.file?.content ?? '').replaceAll(RegExp(r'\s+'), '')));
+    }
+  }
+
+  Future<void> getTopicListGithubPage() async {
+    const String folder = 'topic_list.json';
+
+    // Get the contents of the folder
+    final RepositoryContents? contents =
+        await github?.repositories.getContents(slug, folder);
+
+    // Print the names of the files in the folder
+    if (contents != null && contents.isFile) {
+      textFoundInGithub.value = utf8.decode(base64.decode(
           (contents.file?.content ?? '').replaceAll(RegExp(r'\s+'), '')));
     }
   }

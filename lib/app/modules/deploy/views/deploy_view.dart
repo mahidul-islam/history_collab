@@ -52,17 +52,28 @@ class DeployView extends GetView<DeployController> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                MaterialButton(
-                  color: Colors.amberAccent,
-                  onPressed: controller.onCompare,
-                  child: const Text('Compare Text'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MaterialButton(
+                      color: Colors.amberAccent,
+                      onPressed: controller.onCompareArticle,
+                      child: const Text('Compare Article'),
+                    ),
+                    const SizedBox(width: 30),
+                    MaterialButton(
+                      color: Colors.greenAccent,
+                      onPressed: controller.onCompareEventIndex,
+                      child: const Text('Compare Event Index'),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 30),
                 Container(
                   padding: const EdgeInsets.all(30),
                   child: PrettyDiffText(
-                    oldText: controller.articleFoundInGithub.value ?? '',
-                    newText: controller.articleFoundInFirebase.value ?? '',
+                    oldText: controller.textFoundInGithub.value ?? '',
+                    newText: controller.textFoundInFirebase.value ?? '',
                   ),
                 )
               ],
