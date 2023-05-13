@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:history_collab/app/shared/modal/modal_util.dart';
+import 'package:history_collab/app/shared/services/remote_config_service.dart';
 
 import '../../home/model/entry.dart';
 
@@ -23,7 +23,7 @@ class EntryController extends GetxController {
   DatabaseReference? _index;
   String? database;
 
-  FirebaseRemoteConfig? remoteConfig;
+  // FirebaseRemoteConfig? remoteConfig;
 
   @override
   void onInit() {
@@ -42,8 +42,8 @@ class EntryController extends GetxController {
     _index?.onValue.listen(
       (DatabaseEvent event) => checkAndUpdate(event),
     );
-    remoteConfig = FirebaseRemoteConfig.instance;
-    remoteConfig?.fetchAndActivate();
+    // remoteConfig = FirebaseRemoteConfig.instance;
+    // remoteConfig?.fetchAndActivate();
     super.onInit();
   }
 
@@ -66,8 +66,8 @@ class EntryController extends GetxController {
         const SizedBox(height: 40),
       ],
       submitOnPressed: () {
-        final Map<String, String> val = Map<String, String>.from(
-            jsonDecode(remoteConfig?.getString('users') ?? ''));
+        final Map<String, String> val =
+            Map<String, String>.from(jsonDecode(RemoteConfigService.to.users));
         if (val.values.contains(_passwordController.text)) {
           entry ??= Entry();
           entry?.label = nameController.text;

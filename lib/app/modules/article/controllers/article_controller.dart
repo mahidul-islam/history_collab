@@ -3,13 +3,13 @@ import 'dart:convert';
 
 import 'package:code_text_field/code_text_field.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:highlight/languages/all.dart';
 import 'package:flutter_highlight/themes/vs.dart';
 import 'package:history_collab/app/modules/home/model/entry.dart';
 import 'package:history_collab/app/shared/modal/modal_util.dart';
+import 'package:history_collab/app/shared/services/remote_config_service.dart';
 
 class ArticleController extends GetxController {
   DatabaseReference? _database;
@@ -17,7 +17,7 @@ class ArticleController extends GetxController {
   DatabaseReference? _index;
   DatabaseReference? _newDetails;
   // StreamSubscription? subscription;
-  FirebaseRemoteConfig? remoteConfig;
+  // FirebaseRemoteConfig? remoteConfig;
   String? database;
 
   RxnString link = RxnString();
@@ -54,8 +54,8 @@ class ArticleController extends GetxController {
         (DatabaseEvent event) => checkAndUpdate(event),
       );
     }
-    remoteConfig = FirebaseRemoteConfig.instance;
-    remoteConfig?.fetchAndActivate();
+    // remoteConfig = FirebaseRemoteConfig.instance;
+    // remoteConfig?.fetchAndActivate();
     super.onInit();
   }
 
@@ -82,7 +82,7 @@ class ArticleController extends GetxController {
           await _newDetails?.get().then((value) {
             if (value.value == null) {
               final Map<String, String> val = Map<String, String>.from(
-                  jsonDecode(remoteConfig?.getString('users') ?? ''));
+                  jsonDecode(RemoteConfigService.to.users));
               if (val.values.contains(_passwordController.text)) {
                 _newDetails?.set(articleController.text);
                 entry?.article = titleController.text;
@@ -95,7 +95,7 @@ class ArticleController extends GetxController {
             }
           });
           final Map<String, String> val = Map<String, String>.from(
-              jsonDecode(remoteConfig?.getString('users') ?? ''));
+              jsonDecode(RemoteConfigService.to.users));
           if (val.values.contains(_passwordController.text)) {
             // final String name = val.keys.firstWhere(
             //     (element) => val[element] == _passwordController.text);
@@ -118,7 +118,7 @@ class ArticleController extends GetxController {
         ],
         submitOnPressed: () {
           final Map<String, String> val = Map<String, String>.from(
-              jsonDecode(remoteConfig?.getString('users') ?? ''));
+              jsonDecode(RemoteConfigService.to.users));
           if (val.values.contains(_passwordController.text)) {
             // final String name = val.keys.firstWhere(
             //     (element) => val[element] == _passwordController.text);
