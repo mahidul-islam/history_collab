@@ -18,8 +18,7 @@ class DeployController extends GetxController {
   final Rx<RepositoryCommit?> latestCommit = RepositoryCommit().obs;
   RxList<String> databases = RxList.empty();
   RxnString selectedDatabase = RxnString('sirah');
-  TextEditingController articleNameController =
-      TextEditingController(text: 'abdullah');
+  TextEditingController articleNameController = TextEditingController();
 
   RxnString articleFoundInFirebase = RxnString();
   RxnString articleFoundInGithub = RxnString();
