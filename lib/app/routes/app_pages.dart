@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/article/bindings/article_binding.dart';
 import '../modules/article/views/article_view.dart';
+import '../modules/deploy/bindings/deploy_binding.dart';
+import '../modules/deploy/views/deploy_view.dart';
 import '../modules/entry/bindings/entry_binding.dart';
 import '../modules/entry/views/entry_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -38,6 +40,11 @@ class AppPages {
       name: _Paths.LIST,
       page: () => const ListView(),
       binding: ListBinding(),
+    ),
+    GetPage(
+      name: _Paths.DEPLOY,
+      page: () => const DeployView(),
+      binding: DeployBinding(),
     ),
   ];
 }

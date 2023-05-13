@@ -14,6 +14,8 @@ dependencies:
   firebase_core: ^2.10.0
   firebase_database: ^10.1.1
   firebase_remote_config: ^4.1.0
+  github: ^9.14.0
+  pretty_diff_text: ^1.0.0
   
 
 dev_dependencies: 

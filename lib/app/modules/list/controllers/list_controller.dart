@@ -10,7 +10,7 @@ class ListController extends GetxController {
     // remoteConfig = FirebaseRemoteConfig.instance;
     // await remoteConfig?.fetchAndActivate();
     String? databases = RemoteConfigService.to.databases;
-    childList.addAll(databases.split('`') ?? []);
+    childList.addAll(databases.split('`'));
     super.onInit();
   }
 }

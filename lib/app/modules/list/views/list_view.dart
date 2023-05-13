@@ -18,11 +18,26 @@ class ListView extends GetView<ListController> {
         return SingleChildScrollView(
             child: Column(
           children: <Widget>[
-            for (int i = 0; i < controller.childList.length; i++) ...[
+            SizedBox(
+              width: Get.width,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 30.0, right: 30, top: 30),
+                child: MaterialButton(
+                  padding: const EdgeInsets.all(20),
+                  onPressed: () {
+                    Get.toNamed(Routes.DEPLOY);
+                  },
+                  color: Colors.amberAccent,
+                  child: const Text('DEPLOY TO SERVER'),
+                ),
+              ),
+            ),
+            for (int i = 0; i < controller.childList.length; i++)
               SizedBox(
                 width: Get.width,
                 child: Padding(
-                  padding: const EdgeInsets.all(30.0),
+                  padding:
+                      const EdgeInsets.only(left: 30.0, right: 30, top: 30),
                   child: MaterialButton(
                     padding: const EdgeInsets.all(20),
                     onPressed: () {
@@ -34,7 +49,7 @@ class ListView extends GetView<ListController> {
                   ),
                 ),
               ),
-            ]
+            const SizedBox(height: 50),
           ],
         ));
       }),
