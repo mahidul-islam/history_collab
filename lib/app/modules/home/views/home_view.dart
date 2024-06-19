@@ -57,7 +57,8 @@ class HomeView extends GetView<HomeController> {
                           ),
                           color: Colors.white,
                           child: DataTable(
-                            dataRowHeight: 92,
+                            dataRowMinHeight: 92,
+                            dataRowMaxHeight: 92,
                             columnSpacing: 30,
                             columns: [
                               for (int j = 0;
@@ -83,8 +84,8 @@ class HomeView extends GetView<HomeController> {
                                   i++)
                                 DataRow(
                                   color:
-                                      MaterialStateProperty.resolveWith<Color?>(
-                                    (final Set<MaterialState> states) {
+                                      WidgetStateProperty.resolveWith<Color?>(
+                                    (final Set<WidgetState> states) {
                                       return Colors.white;
                                     },
                                   ),
@@ -150,10 +151,10 @@ class HomeView extends GetView<HomeController> {
                                       },
                                     ),
                                     DataCell(
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
-                                        children: const [Icon(Icons.edit)],
+                                        children: [Icon(Icons.edit)],
                                       ),
                                       onTap: () {
                                         Get.toNamed(
