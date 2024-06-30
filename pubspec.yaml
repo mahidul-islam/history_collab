@@ -16,6 +16,8 @@ dependencies:
   firebase_database: ^11.0.2
   firebase_remote_config: ^5.0.2
   get: ^4.6.6
+  firebase_auth: ^5.1.1
+  cloud_firestore: ^5.0.2
   
 
 dev_dependencies: 
