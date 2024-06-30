@@ -69,6 +69,7 @@ class RegistrationModal extends StatelessWidget {
                       onPressed: () {
                         controller.register();
                         Get.back();
+                        Get.back();
                       },
                       child: const Text('Register'),
                     ),
@@ -153,6 +154,18 @@ class LoginModal extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
+                GestureDetector(
+                  onTap: () {
+                    Get.dialog(
+                      RegistrationModal(
+                        controller: controller,
+                      ),
+                      barrierDismissible: false,
+                    );
+                  },
+                  child: const Text('Click here Sign Up instead!'),
+                ),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
                     Get.back();

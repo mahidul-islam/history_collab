@@ -6,6 +6,7 @@ import 'package:history_collab/app/shared/services/remote_config_service.dart';
 import '../model/user_model.dart';
 
 class ListController extends GetxController {
+  Rx<User?> user = Rx(null);
   RxList<String> childList = RxList.empty();
   Rx<UserData?> userData = Rx(null);
   TextEditingController emailController = TextEditingController();
@@ -21,6 +22,10 @@ class ListController extends GetxController {
     // await remoteConfig?.fetchAndActivate();
     String? databases = RemoteConfigService.to.databases;
     childList.addAll(databases.split('`'));
+    FirebaseAuth.instance.authStateChanges().listen((User? u) {
+      user.value = u;
+      getUserName(u);
+    });
     super.onInit();
   }
 
@@ -36,6 +41,7 @@ class ListController extends GetxController {
         .get();
     final Map<String, dynamic> json = data.data() ?? {};
     userData.value = UserData.fromJson(json);
+    print(userData.value?.userName);
   }
 
   void register() {
