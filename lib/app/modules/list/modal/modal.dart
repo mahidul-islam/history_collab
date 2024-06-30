@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/home_controller.dart';
+import '../controllers/list_controller.dart';
 
 class RegistrationModal extends StatelessWidget {
   const RegistrationModal({super.key, required this.controller});
-  final HomeController controller;
+  final ListController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +96,7 @@ class LoginModal extends StatelessWidget {
     super.key,
     required this.controller,
   });
-  final HomeController controller;
+  final ListController controller;
 
   @override
   Widget build(BuildContext context) {
