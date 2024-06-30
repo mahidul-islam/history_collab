@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:history_collab/app/routes/app_pages.dart';
@@ -26,7 +27,9 @@ class ListView extends GetView<ListController> {
                 ),
               )
             : FloatingActionButton.large(
-                onPressed: () {},
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                },
                 child: Text(
                   'Salam ${controller.userData.value?.userName ?? ""}',
                   style: const TextStyle(
