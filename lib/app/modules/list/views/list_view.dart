@@ -53,7 +53,7 @@ class ListView extends GetView<ListController> {
                     onPressed: () {
                       Get.toNamed(Routes.DEPLOY);
                     },
-                    color: Colors.amberAccent,
+                    color: Colors.greenAccent,
                     child: const Text('DEPLOY TO SERVER'),
                   ),
                 ),

@@ -49,9 +49,9 @@ class EntryController extends GetxController {
 
   void checkAndUpdate(DatabaseEvent event) {
     if (event.snapshot.value != null) {
-      var cacheMap = json.decode(json.encode(event.snapshot.value));
-      Entry entry = Entry.fromJson(cacheMap);
-      print(entry.toJson());
+      // var cacheMap = json.decode(json.encode(event.snapshot.value));
+      // Entry entry = Entry.fromJson(cacheMap);
+      // print(entry.toJson());
     }
   }
 

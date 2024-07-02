@@ -101,15 +101,15 @@ class DeployController extends GetxController {
     return latestCommit;
   }
 
-  Future<void> printListOfTopic() async {
-    const file = 'topic_list.json';
-    // const content = 'New content';
+  // Future<void> printListOfTopic() async {
+  //   const file = 'topic_list.json';
+  //   // const content = 'New content';
 
-    final currentFile = await github?.repositories.getContents(slug, file);
-    // final path = currentFile.file?.path;
-    // final sha = currentFile.file?.sha;
-    print(currentFile?.file?.content);
-  }
+  //   final currentFile = await github?.repositories.getContents(slug, file);
+  //   // final path = currentFile.file?.path;
+  //   // final sha = currentFile.file?.sha;
+  //   print(currentFile?.file?.content);
+  // }
 
   Future<void> commit(String content, String path) async {
     // Create the commit
@@ -135,7 +135,7 @@ class DeployController extends GetxController {
     if (contents != null) {
       for (final item in contents.tree!) {
         if (item.type == 'file') {
-          print(item.name);
+          // print(item.name);
         }
       }
     }

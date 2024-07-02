@@ -10,9 +10,7 @@ class HomeController extends GetxController {
   DatabaseReference? _index;
   DatabaseReference? _details;
   String? database;
-
   RxMap<String, dynamic> map = {'Zihan': 'vai'}.obs;
-
   ScrollController scrollController = ScrollController();
 
   List<String> tableHeads = <String>[

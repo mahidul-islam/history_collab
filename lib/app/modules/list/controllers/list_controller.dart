@@ -41,7 +41,7 @@ class ListController extends GetxController {
         .get();
     final Map<String, dynamic> json = data.data() ?? {};
     userData.value = UserData.fromJson(json);
-    print(userData.value?.userName);
+    // print(userData.value?.userName);
   }
 
   void register() {
@@ -87,5 +87,15 @@ class ListController extends GetxController {
     await FirebaseFirestore.instance.collection('users').doc(uid).set(
           userData.value?.toJson() ?? {},
         );
+  }
+
+  @override
+  void onClose() {
+    nameController.dispose();
+    emailController.dispose();
+    passController.dispose();
+    logemailController.dispose();
+    logpassController.dispose();
+    super.onClose();
   }
 }
