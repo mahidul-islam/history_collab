@@ -1,5 +1,4 @@
 // ignore_for_file: constant_identifier_names
-
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:get/get.dart';
 

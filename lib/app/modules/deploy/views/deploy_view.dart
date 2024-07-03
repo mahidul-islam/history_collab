@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:pretty_diff_text/pretty_diff_text.dart';
-
 import '../controllers/deploy_controller.dart';
 
 class DeployView extends GetView<DeployController> {

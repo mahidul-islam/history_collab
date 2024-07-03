@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:history_collab/app/shared/services/remote_config_service.dart';
+import 'package:history_collab/app/shared/services/user_service.dart';
 import '../model/user_model.dart';
 
 class ListController extends GetxController {
@@ -22,9 +23,10 @@ class ListController extends GetxController {
     // await remoteConfig?.fetchAndActivate();
     String? databases = RemoteConfigService.to.databases;
     childList.addAll(databases.split('`'));
-    FirebaseAuth.instance.authStateChanges().listen((User? u) {
+    FirebaseAuth.instance.authStateChanges().listen((User? u) async {
       user.value = u;
-      getUserName(u);
+      await getUserName(u);
+      UserService.to.userData.value = userData.value;
     });
     super.onInit();
   }

@@ -1,10 +1,7 @@
-import 'dart:convert';
-
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:history_collab/app/shared/modal/modal_util.dart';
-import 'package:history_collab/app/shared/services/remote_config_service.dart';
+import 'package:history_collab/app/shared/services/user_service.dart';
 
 import '../../home/model/entry.dart';
 
@@ -16,14 +13,9 @@ class EntryController extends GetxController {
 
   Entry? entry;
   int? index;
-
-  final TextEditingController _passwordController = TextEditingController();
-
   DatabaseReference? _database;
   DatabaseReference? _index;
   String? database;
-
-  // FirebaseRemoteConfig? remoteConfig;
 
   @override
   void onInit() {
@@ -48,47 +40,33 @@ class EntryController extends GetxController {
   }
 
   void checkAndUpdate(DatabaseEvent event) {
-    if (event.snapshot.value != null) {
-      // var cacheMap = json.decode(json.encode(event.snapshot.value));
-      // Entry entry = Entry.fromJson(cacheMap);
-      // print(entry.toJson());
-    }
+    // if (event.snapshot.value != null) {
+    //   // var cacheMap = json.decode(json.encode(event.snapshot.value));
+    //   // Entry entry = Entry.fromJson(cacheMap);
+    //   // print(entry.toJson());
+    // }
   }
 
   Future<void> save() async {
-    ModalUtil().showTwoButtonModal(
-      title: 'Editing prev',
-      contents: [
-        TextField(
-          controller: _passwordController,
-          obscureText: true,
-        ),
-        const SizedBox(height: 40),
-      ],
-      submitOnPressed: () {
-        final Map<String, String> val =
-            Map<String, String>.from(jsonDecode(RemoteConfigService.to.users));
-        if (val.values.contains(_passwordController.text)) {
-          entry ??= Entry();
-          entry?.label = nameController.text;
-          entry?.date = double.tryParse(dateController.text);
-          entry?.start = double.tryParse(startController.text);
-          entry?.end = double.tryParse(endController.text);
+    if (UserService.to.userData.value?.role == 'User') {
+      entry ??= Entry();
+      entry?.label = nameController.text;
+      entry?.date = double.tryParse(dateController.text);
+      entry?.start = double.tryParse(startController.text);
+      entry?.end = double.tryParse(endController.text);
 
-          if (entry?.label != null &&
-              ((entry?.start == null &&
-                      entry?.end == null &&
-                      entry?.date != null) ||
-                  (entry?.start != null &&
-                      entry?.end != null &&
-                      entry?.date == null))) {
-            _index?.set(entry?.toJson());
-            Get.back();
-          } else {
-            // print('error');
-          }
-        }
-      },
-    );
+      if (entry?.label != null &&
+          ((entry?.start == null &&
+                  entry?.end == null &&
+                  entry?.date != null) ||
+              (entry?.start != null &&
+                  entry?.end != null &&
+                  entry?.date == null))) {
+        _index?.set(entry?.toJson());
+        Get.back();
+      } else {
+        Get.snackbar('Problem', 'সমস্যা');
+      }
+    }
   }
 }

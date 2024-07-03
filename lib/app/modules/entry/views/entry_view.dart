@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../controllers/entry_controller.dart';
 
 class EntryView extends GetView<EntryController> {
-  const EntryView({Key? key}) : super(key: key);
+  const EntryView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
