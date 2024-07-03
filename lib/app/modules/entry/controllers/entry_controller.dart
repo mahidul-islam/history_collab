@@ -47,8 +47,12 @@ class EntryController extends GetxController {
     // }
   }
 
+  bool isAdmin() {
+    return UserService.to.userData.value?.role == 'User';
+  }
+
   Future<void> save() async {
-    if (UserService.to.userData.value?.role == 'User') {
+    if (isAdmin()) {
       entry ??= Entry();
       entry?.label = nameController.text;
       entry?.date = double.tryParse(dateController.text);

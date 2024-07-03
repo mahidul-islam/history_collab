@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:history_collab/app/modules/article/widget/code_box.dart';
-
 import '../controllers/article_controller.dart';
 
 class ArticleView extends GetView<ArticleController> {
-  const ArticleView({Key? key}) : super(key: key);
+  const ArticleView({super.key});
   @override
   Widget build(BuildContext context) {
     return Obx(

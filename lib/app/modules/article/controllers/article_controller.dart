@@ -1,8 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
-
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:code_text_field/code_text_field.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
