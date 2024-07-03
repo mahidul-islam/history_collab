@@ -9,7 +9,7 @@ import 'package:highlight/languages/all.dart';
 import 'package:flutter_highlight/themes/vs.dart';
 import 'package:history_collab/app/modules/home/model/entry.dart';
 import 'package:history_collab/app/shared/modal/modal_util.dart';
-import 'package:history_collab/app/shared/services/remote_config_service.dart';
+import '../../../shared/services/user_service.dart';
 
 class ArticleController extends GetxController {
   DatabaseReference? _database;
@@ -22,8 +22,6 @@ class ArticleController extends GetxController {
 
   RxnString link = RxnString();
   final TextEditingController titleController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
   final CodeController articleController = CodeController(
     text: '',
     language: allLanguages['plaintext'],
@@ -54,8 +52,6 @@ class ArticleController extends GetxController {
         (DatabaseEvent event) => checkAndUpdate(event),
       );
     }
-    // remoteConfig = FirebaseRemoteConfig.instance;
-    // remoteConfig?.fetchAndActivate();
     super.onInit();
   }
 
@@ -66,69 +62,31 @@ class ArticleController extends GetxController {
 
   Future<void> save() async {
     if (link.value == null) {
-      ModalUtil().showTwoButtonModal(
-        title: 'Save New Data',
-        contents: [
-          TextField(
-            controller: _passwordController,
-            obscureText: true,
-            decoration: const InputDecoration(hintText: 'password'),
-          )
-        ],
-        submitOnPressed: () async {
-          _newDetails =
-              _database?.child('$database/details/${titleController.text}');
-          _index = _database?.child('$database/index/$index');
-          await _newDetails?.get().then((value) {
-            if (value.value == null) {
-              final Map<String, String> val = Map<String, String>.from(
-                  jsonDecode(RemoteConfigService.to.users));
-              if (val.values.contains(_passwordController.text)) {
-                _newDetails?.set(articleController.text);
-                entry?.article = titleController.text;
-                _index?.set(entry?.toJson());
-                Get.back();
-              }
-            } else {
-              ModalUtil().showbasicModal(
-                  contents: [const Text('title already exists')]);
-            }
-          });
-          final Map<String, String> val = Map<String, String>.from(
-              jsonDecode(RemoteConfigService.to.users));
-          if (val.values.contains(_passwordController.text)) {
-            // final String name = val.keys.firstWhere(
-            //     (element) => val[element] == _passwordController.text);
-            // Add name in Database
-            // print(name);
-            _details?.set(articleController.text);
+      _newDetails =
+          _database?.child('$database/details/${titleController.text}');
+      _index = _database?.child('$database/index/$index');
+      await _newDetails?.get().then((value) {
+        if (value.value == null) {
+          if (UserService.to.userData.value?.role == 'User') {
+            _newDetails?.set(articleController.text);
+            entry?.article = titleController.text;
+            _index?.set(entry?.toJson());
             Get.back();
           }
-        },
-      );
+        } else {
+          ModalUtil()
+              .showbasicModal(contents: [const Text('title already exists')]);
+        }
+      });
+      if (UserService.to.userData.value?.role == 'User') {
+        _details?.set(articleController.text);
+        Get.back();
+      }
     } else if (link.value == titleController.text) {
-      ModalUtil().showTwoButtonModal(
-        title: 'Edit Data',
-        contents: [
-          TextField(
-            controller: _passwordController,
-            obscureText: true,
-            decoration: const InputDecoration(hintText: 'password'),
-          )
-        ],
-        submitOnPressed: () {
-          final Map<String, String> val = Map<String, String>.from(
-              jsonDecode(RemoteConfigService.to.users));
-          if (val.values.contains(_passwordController.text)) {
-            // final String name = val.keys.firstWhere(
-            //     (element) => val[element] == _passwordController.text);
-            // Add name in Database
-            // print(name);
-            _details?.set(articleController.text);
-            Get.back();
-          }
-        },
-      );
+      if (UserService.to.userData.value?.role == 'User') {
+        _details?.set(articleController.text);
+        Get.back();
+      }
     } else {
       ModalUtil()
           .showbasicModal(contents: [const Text('can\'t update title yet')]);
